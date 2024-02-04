@@ -16,14 +16,14 @@ export class SkillSelectPanel extends Component {
     private skills: Skill[] = [];
 
     protected onLoad(): void {
-     //   this.skills.push(new SkillFireball());
+       this.skills.push(new SkillFireball());
         this.skills.push(new SkillCycloneKnife());
-        // this.skills.push(new SkillFlash());
-        // this.skills.push(new SkillLightning());
-        // this.skills.push(new SkillInvincible());
-        // this.skills.push(new SkillInsertExp());
-        // this.skills.push(new SkillInsertHP());
-        // this.skills.push(new SkillReduceCd());
+        this.skills.push(new SkillFlash());
+        this.skills.push(new SkillLightning());
+        this.skills.push(new SkillInvincible());
+        this.skills.push(new SkillInsertExp());
+        this.skills.push(new SkillInsertHP());
+        this.skills.push(new SkillReduceCd());
 
     }
     protected onEnable(): void {
