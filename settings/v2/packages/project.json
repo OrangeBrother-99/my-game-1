@@ -1,0 +1,49 @@
+{
+  "layer": [
+    {
+      "name": "MENU",
+      "value": 1
+    }
+  ],
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "PLAYER"
+      },
+      {
+        "index": 2,
+        "name": "MONSTER"
+      },
+      {
+        "index": 3,
+        "name": "PLAYER_WEAPON"
+      },
+      {
+        "index": 4,
+        "name": "MONSTER_WEAPON"
+      },
+      {
+        "index": 5,
+        "name": "OBSTACLE"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 1,
+      "1": 52,
+      "2": 42,
+      "3": 44,
+      "4": 34,
+      "5": 30
+    }
+  },
+  "general": {
+    "designResolution": {
+      "width": 1800,
+      "height": 780,
+      "fitWidth": true,
+      "fitHeight": true
+    },
+    "renderPipeline": "5d45ba66-829a-46d3-948e-2ed3fa7ee421"
+  }
+}

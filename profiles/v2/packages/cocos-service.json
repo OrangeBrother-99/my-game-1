@@ -1,0 +1,21 @@
+{
+  "options": {
+    "web-desktop": {
+      "configID": "48ec11",
+      "services": []
+    },
+    "android": {
+      "configID": "48ec11",
+      "services": []
+    },
+    "web-mobile": {
+      "configID": "48ec11",
+      "services": []
+    }
+  },
+  "builder-options": {
+    "configID": "48ec11",
+    "services": [],
+    "__version__": "3.0.4"
+  }
+}

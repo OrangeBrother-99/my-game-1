@@ -1,0 +1,41 @@
+{
+  "common": {
+    "outputName": "android",
+    "mainBundleCompressionType": "merge_dep",
+    "platform": "android",
+    "buildPath": "project://.creator",
+    "startScene": "a5ff28c2-22fd-4819-9c24-9d52fe3bb5a3"
+  },
+  "options": {
+    "android": {
+      "packageName": "com.chenhao.test",
+      "orientation": {
+        "portrait": false,
+        "upsideDown": false,
+        "landscapeRight": true,
+        "landscapeLeft": true
+      },
+      "apiLevel": 26,
+      "appABIs": [
+        "arm64-v8a"
+      ],
+      "useDebugKeystore": true,
+      "keystorePath": "",
+      "keystorePassword": "",
+      "keystoreAlias": "",
+      "keystoreAliasPassword": "",
+      "appBundle": false,
+      "androidInstant": false,
+      "remoteUrl": "",
+      "sdkPath": "",
+      "ndkPath": "",
+      "renderBackEnd": {
+        "vulkan": false,
+        "gles3": true,
+        "gles2": true
+      },
+      "swappy": false,
+      "__version__": "1.0.1"
+    }
+  }
+}

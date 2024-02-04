@@ -1,0 +1,11 @@
+{
+  "common": {
+    "outputName": "web-mobile",
+    "polyfills": {
+      "asyncFunctions": true
+    },
+    "mainBundleCompressionType": "merge_dep",
+    "platform": "web-mobile",
+    "startScene": "a5ff28c2-22fd-4819-9c24-9d52fe3bb5a3"
+  }
+}
