@@ -16,7 +16,7 @@ export class SkillSelectPanel extends Component {
     private skills: Skill[] = [];
 
     protected onLoad(): void {
-       this.skills.push(new SkillFireball());
+        this.skills.push(new SkillFireball());
         this.skills.push(new SkillCycloneKnife());
         this.skills.push(new SkillFlash());
         this.skills.push(new SkillLightning());

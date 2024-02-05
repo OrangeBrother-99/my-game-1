@@ -70,4 +70,16 @@ export class ResourceUtil {
             })
         });
     }
+
+    static loadDir(url: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            resources.loadDir(url, (err: Error, asset: Asset[]) => {
+                if (err) {
+                    reject();
+                    return;
+                }
+                resolve(asset);
+            })
+        });
+    }
 }

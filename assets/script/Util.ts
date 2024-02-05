@@ -55,13 +55,13 @@ export class Util {
     }
 
 
-    static moveNodeCall(node: Node, radian: number, speed: number,posistion?:Vec3) {
+    static moveNodeCall(node: Node, radian: number, speed: number, posistion?: Vec3) {
         const x = node.position.x + Math.cos(radian) * speed;
         const y = node.position.y + Math.sin(radian) * speed;
-        if (!posistion){
-            posistion = new  Vec3();
+        if (!posistion) {
+            posistion = new Vec3();
         }
-        return  posistion.set(x,y,0);
+        return posistion.set(x, y, 0);
     }
 
 
@@ -77,11 +77,15 @@ export class Util {
         return new Vec3(x, y, start.z);
     }
 
-    static hypodispersionVec3X(width: number, step: number, length: number , index : number) {
+    static hypodispersionVec3X(width: number, step: number, length: number, index: number) {
 
         const totalWidth = width * length + step * (length - 1);
         const helf = totalWidth / 2;
         const startX = -helf + (width / 2);
         return startX + index * (width + step);
+    }
+
+    static getCharPath(sourcePath: string, char: string) {
+        return sourcePath.replace("{}", char).replace("{}", char);
     }
 }

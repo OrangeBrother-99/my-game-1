@@ -1,5 +1,6 @@
 import { _decorator, clamp, Component, Node, UIOpacity, v3 } from 'cc';
 import { NormalButton } from './NormalButton';
+import { BattleContext } from './BattleContext';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterPanel')
@@ -8,14 +9,17 @@ export class CharacterPanel extends Component {
     @property(Node) btnLeft: Node;
     @property(Node) btnRight: Node;
 
+
+
     //当前节点下标
     private _currentIndex: number = 0;
 
     protected onEnable(): void {
-        this._currentIndex = 0;
+        this._currentIndex = BattleContext.selectChar;
+        this.moveCharacters(false,this._currentIndex);
         this.btnLeft.getComponent(NormalButton).onClick(() => {
             this.moveCharacters(true);
-
+          
         });
         this.btnRight.getComponent(NormalButton).onClick(() => {
             this.moveCharacters(false);
@@ -56,6 +60,7 @@ export class CharacterPanel extends Component {
     moveCharacters(isLeft: boolean, index?: number) {
         const targerIndex = index ? index : isLeft ? this._currentIndex - 1 : this._currentIndex + 1;
         this._currentIndex = clamp(targerIndex, 0, this.ndCharacters.children.length - 1);
+        BattleContext.selectChar = this._currentIndex;
         // console.info("选用角色=>", targerIndex);
         this.updateBtnStatus();
         //对角色进行移动

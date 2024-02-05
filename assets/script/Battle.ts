@@ -43,6 +43,8 @@ export class Battle extends Component {
     protected onLoad(): void {
         BattleContext.ndPlayer = this.ndPlayer;
         BattleContext.player = this.ndPlayer.getComponent(Player);
+        //切换角色
+        BattleContext.player.changePlayer();
         BattleContext.ndCamera = this.node.getChildByName("Camera");
         const createSubNode = (name: string) => {
             const subNode = new Node(name);

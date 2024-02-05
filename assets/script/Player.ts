@@ -1,4 +1,4 @@
-import { _decorator, AnimationComponent, AntiAliasing, bits, clamp, Collider2D, Color, Component, Contact2DType, dragonBones, instantiate, log, math, Node, randomRangeInt, toDegree, toRadian, Tween, tween, UIOpacity, v3, Vec2, Vec3 } from 'cc';
+import { _decorator, AnimationComponent, AntiAliasing, Asset, bits, clamp, Collider2D, Color, Component, Contact2DType, dragonBones, instantiate, JsonAsset, log, math, Node, randomRangeInt, toDegree, toRadian, Tween, tween, UIOpacity, v3, Vec2, Vec3 } from 'cc';
 import { Constants } from './Constants';
 import { Util } from './Util';
 import { BattleContext } from './BattleContext';
@@ -13,6 +13,7 @@ import { SkillCard } from './SkillCard';
 import { Skill, SkillID } from './Skill';
 import { GlobalEvent } from './GlobalEvent';
 import { Surround } from './Surround';
+import { ResourceUtil } from './ResourceUtil';
 const { ccclass, property } = _decorator;
 
 @ccclass('Player')
@@ -257,46 +258,10 @@ export class Player extends Component {
             var surroundNode = surround ? surround : Globals.getNode(Constants.ResourceName.SURROUND, BattleContext.ndWeapon);
 
             const swordNumber = (skill.level + 1) * 4;
-            console.info("旋风刀数量：",swordNumber);
+            console.info("旋风刀数量：", swordNumber);
             surroundNode.getComponent(Surround).init(swordNumber);
             surroundNode.getComponent(Surround).isMoving = true;
         }
-
-
-        // 
-        // const surroundNode= BattleContext.ndWeapon.getChildByName(Constants.ResourceName.SURROUND);
-        // surroundNode.
-
-        // console.info("sss =》", skill);
-        // var surround = null;
-        // if (skill && skill.level > 0) {
-        //     const multiply = skill.level + 1;
-        //     //优化 角度     
-        //     const angle = 360 / (4 * multiply);
-        //     console.info(angle);
-
-
-        //     //console.info("getComponentsInChildren =》", surround);
-        //     //计算偏离角度
-        //     for (let i = 0; i < surround.length; i++) {
-        //         //surround[i].node.active = false;
-        //         //先还原
-        //         surround[i].node.getComponent(Surround).isMoving = false;
-        //         surround[i].node.angle = 0;
-        //         surround[i].node.angle = angle * i;
-        //         console.info("surround[i]", i, surround[i].node.angle);
-        //         console.info("旋转：", i, angle * i);
-
-        //     }
-        // }else{
-        //     Globals.getNode(Constants.ResourceName.SURROUND, BattleContext.ndWeapon);
-        //     surround= BattleContext.ndWeapon.getComponentsInChildren(Constants.ResourceName.SURROUND);
-        // }
-        // //激活
-        // for (let i = 0; i < surround.length; i++) {
-        //     surround[i].node.getComponent(Surround).isMoving = true;
-        // }
-        // return;
 
 
     }
@@ -570,6 +535,38 @@ export class Player extends Component {
                 break;
             default: break;
         }
+    }
+    //切换玩家并更换武器
+    changePlayer() {
+        //获取当前选中角色
+        const id = BattleContext.selectChar;
+        const char = Constants.CharacterId[id];
+        const characterPath = Util.getCharPath(Constants.CharacterPath, char);
+
+        // console.info(skeJsonPath, texJsonPath);
+        // /ani/player/char3/char3_tex.json
+
+        const armatureDisplay: dragonBones.ArmatureDisplay = this.ndWait.getComponent(dragonBones.ArmatureDisplay);
+        
+        ResourceUtil.loadDir(characterPath).then((res:Asset[])=>{
+            armatureDisplay.dragonAsset = res[0] as dragonBones.DragonBonesAsset;
+            armatureDisplay.dragonAtlasAsset = res[2] as dragonBones.DragonBonesAtlasAsset;
+       })
+    //     ResourceUtil.(skeJsonPath).then(ske => {
+    //         console.info(ske);
+    //       
+        
+    //     });
+    //     ResourceUtil.loadJson(texJsonPath).then(tex => {
+    //         console.info(tex);
+    //      
+    //     });
+        
+    //     armatureDisplay.armatureName = "idle";
+    //     armatureDisplay.animationName = "idle";
+    //     armatureDisplay.playAnimation("idle", -1);
+    // }
+
     }
 }
 

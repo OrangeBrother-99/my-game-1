@@ -11,6 +11,9 @@ export class Main extends Component {
     @property(Node) ndBtnSelect: Node;
     @property(Node) ndCharactorPanel: Node;
 
+    protected onLoad(): void {
+         director.preloadScene('Battle');
+    }
     protected onEnable(): void {
         this.ndTalenPanel.active = false;
         this.ndCharactorPanel.active = false;

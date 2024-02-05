@@ -39,4 +39,15 @@ export class Constants{
          //怪物武器
          E_BULLET:100,
     }
+    
+    static  readonly  CharacterSkePath = "/ani/player/{}/{}_ske";
+    static  readonly  CharacterTexPath = "/ani/player/{}/{}_tex";
+    static  readonly  CharacterPath = "/ani/player/{}";
+
+    static readonly CharacterId= {
+          0:  "char1",
+          1:  "char2",
+          2:  "char3",
+          3:  "char4"
+    }
 }

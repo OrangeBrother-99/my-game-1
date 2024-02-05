@@ -122,10 +122,10 @@ export class SkillLightning extends Skill {
         super(SkillID.Lightning, 0, 4, false, level, maxlevel);
     }
 
-
+                
     getName(): string {
         return "闪电术";
-    }
+    }       
     getdesc(): string {
         return "[主动]召唤闪电，进行攻击";
     }
